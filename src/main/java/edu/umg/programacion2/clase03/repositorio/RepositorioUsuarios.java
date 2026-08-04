@@ -100,10 +100,18 @@ public class RepositorioUsuarios {
 	 *   Strings en otros ejercicios).
 	 */
 	public Usuario usuarioMasViejoDePais(String pais) {
-		List<Usuario> usuariosPorPais = new ArrayList<>();
-		Usuario viejoUsuario = Arraylist();
-
-		return null;
+		List<Usuario> usuariosDelPais = filtrarPorPais(pais);
+		if (usuariosDelPais.isEmpty()) {
+			return null ;
+		}
+		Usuario masViejo = usuariosDelPais.get(0);
+		
+		for(Usuario u : usuariosDelPais) {
+			 if(u.getEdad()> masViejo.getEdad()) {
+				 masViejo= u;
+			 }
+		}
+		return masViejo;
 		}
 	}
 
